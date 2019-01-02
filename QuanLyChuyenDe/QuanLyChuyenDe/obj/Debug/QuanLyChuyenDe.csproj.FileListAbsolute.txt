@@ -1,0 +1,13 @@
+c:\users\user\documents\visual studio 2013\Projects\QuanLyChuyenDe\QuanLyChuyenDe\bin\Debug\QuanLyChuyenDe.exe.config
+C:\Users\User\documents\visual studio 2013\Projects\QuanLyChuyenDe\QuanLyChuyenDe\bin\Debug\QuanLyChuyenDe.exe
+C:\Users\User\documents\visual studio 2013\Projects\QuanLyChuyenDe\QuanLyChuyenDe\bin\Debug\QuanLyChuyenDe.pdb
+C:\Users\User\documents\visual studio 2013\Projects\QuanLyChuyenDe\QuanLyChuyenDe\obj\Debug\QuanLyChuyenDe.csprojResolveAssemblyReference.cache
+C:\Users\User\documents\visual studio 2013\Projects\QuanLyChuyenDe\QuanLyChuyenDe\obj\Debug\QuanLyChuyenDe.GUI.frmDangKyTaiKhoan.resources
+C:\Users\User\documents\visual studio 2013\Projects\QuanLyChuyenDe\QuanLyChuyenDe\obj\Debug\QuanLyChuyenDe.Properties.Resources.resources
+C:\Users\User\documents\visual studio 2013\Projects\QuanLyChuyenDe\QuanLyChuyenDe\obj\Debug\QuanLyChuyenDe.csproj.GenerateResource.Cache
+C:\Users\User\documents\visual studio 2013\Projects\QuanLyChuyenDe\QuanLyChuyenDe\obj\Debug\QuanLyChuyenDe.exe
+C:\Users\User\documents\visual studio 2013\Projects\QuanLyChuyenDe\QuanLyChuyenDe\obj\Debug\QuanLyChuyenDe.pdb
+C:\Users\User\documents\visual studio 2013\Projects\QuanLyChuyenDe\QuanLyChuyenDe\obj\Debug\QuanLyChuyenDe.GUI.frmDangNhap.resources
+C:\Users\User\documents\visual studio 2013\Projects\QuanLyChuyenDe\QuanLyChuyenDe\obj\Debug\QuanLyChuyenDe.GUI.frmDanhSachChuyenDe.resources
+C:\Users\User\documents\visual studio 2013\Projects\QuanLyChuyenDe\QuanLyChuyenDe\obj\Debug\QuanLyChuyenDe.GUI.frmThemChuyenDe.resources
+C:\Users\User\documents\visual studio 2013\Projects\QuanLyChuyenDe\QuanLyChuyenDe\obj\Debug\QuanLyChuyenDe.GUI.frmCapNhatChuyenDe.resources

@@ -1,0 +1,12 @@
+C:\Users\User\Downloads\08_18\BUS\obj\Debug\BUS.csprojResolveAssemblyReference.cache
+C:\Users\User\Downloads\08_18\BUS\obj\Debug\BUS.Properties.Resources.resources
+C:\Users\User\Downloads\08_18\BUS\obj\Debug\BUS.csproj.GenerateResource.Cache
+C:\Users\User\Downloads\08_18\BUS\bin\Debug\BUS.exe.config
+C:\Users\User\Downloads\08_18\BUS\bin\Debug\BUS.exe
+C:\Users\User\Downloads\08_18\BUS\bin\Debug\BUS.pdb
+C:\Users\User\Downloads\08_18\BUS\bin\Debug\DAO.exe
+C:\Users\User\Downloads\08_18\BUS\bin\Debug\DTO.exe
+C:\Users\User\Downloads\08_18\BUS\bin\Debug\DAO.pdb
+C:\Users\User\Downloads\08_18\BUS\bin\Debug\DTO.pdb
+C:\Users\User\Downloads\08_18\BUS\obj\Debug\BUS.exe
+C:\Users\User\Downloads\08_18\BUS\obj\Debug\BUS.pdb
