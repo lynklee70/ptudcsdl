@@ -211,6 +211,7 @@
             this.btnThem.TabIndex = 28;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnThoat
             // 
@@ -248,6 +249,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmThemChuyenDe";
             this.Text = "frmThemChuyenDe";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmThemChuyenDe_FormClosed);
             this.Load += new System.EventHandler(this.frmThemChuyenDe_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

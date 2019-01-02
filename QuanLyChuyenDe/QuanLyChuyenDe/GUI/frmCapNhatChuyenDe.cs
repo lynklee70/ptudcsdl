@@ -13,6 +13,8 @@ namespace QuanLyChuyenDe.GUI
 {
     public partial class frmCapNhatChuyenDe : Form
     {
+        public delegate void CloseEvent();
+        public CloseEvent WindowClosed;
         public frmCapNhatChuyenDe()
         {
             InitializeComponent();
@@ -39,11 +41,17 @@ namespace QuanLyChuyenDe.GUI
             if(ChuyenDeBUS.Instance.update(this))
             {
                 MessageBox.Show("Cập nhật thành công", "Thông báo");
+                this.Close();
             }
             else
             {
                 MessageBox.Show("Cập nhật thất bại", "Thông báo");
             }
+        }
+
+        private void frmCapNhatChuyenDe_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            WindowClosed();
         }
     }
 }

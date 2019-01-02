@@ -20,7 +20,7 @@ namespace QuanLyChuyenDe.GUI
 
         private void frmDanhSachChuyenDe_Load(object sender, EventArgs e)
         {
-            ChuyenDeBUS.Instance.loadFormDanhSach(dgvDanhSachCD);
+            load();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -31,6 +31,7 @@ namespace QuanLyChuyenDe.GUI
         private void btnThem_Click(object sender, EventArgs e)
         {
             frmThemChuyenDe frm = new frmThemChuyenDe();
+            frm.WindowClosed += load;
             frm.ShowDialog();
         }
 
@@ -38,7 +39,13 @@ namespace QuanLyChuyenDe.GUI
         {
             string macd = dgvDanhSachCD.SelectedRows[0].Cells["MaCD"].Value.ToString();
             frmCapNhatChuyenDe frm = new frmCapNhatChuyenDe(macd);
+            frm.WindowClosed += load;
             frm.ShowDialog();
+        }
+
+        private void load()
+        {
+            ChuyenDeBUS.Instance.loadFormDanhSach(dgvDanhSachCD);
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

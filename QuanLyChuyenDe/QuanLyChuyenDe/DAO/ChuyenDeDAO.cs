@@ -84,6 +84,41 @@ namespace QuanLyChuyenDe.DAO
             return result != 0;
         }
 
+        public bool insert(ChuyenDeBUS cd)
+        {
+            DataProvider.Instance.Connect();
+            string query = "InsertChuyenDe";
+            int result = DataProvider.Instance.ExecuteNonQuery(CommandType.StoredProcedure, query,
+                                        new SqlParameter { ParameterName = "@macd", Value = cd.MaCD },
+                                        new SqlParameter { ParameterName = "@tennganh", Value = cd.TenNganh },
+                                        new SqlParameter { ParameterName = "@tencd", Value = cd.TenCD },
+                                        new SqlParameter { ParameterName = "@slsv", Value = cd.SLSVToiDa },
+                                        new SqlParameter { ParameterName = "@slnhom", Value = cd.SLNhomToiDa },
+                                        new SqlParameter { ParameterName = "@ngaybd", Value = cd.NgayBD },
+                                        new SqlParameter { ParameterName = "@ngaykt", Value = cd.NgayKT },
+                                        new SqlParameter { ParameterName = "@trangthai", Value = cd.TrangThai });
+            DataProvider.Instance.Disconnect();
+            return result != 0;
+        }
+
+        public bool checkTen(string tencd)
+        {
+            DataProvider.Instance.Connect();
+            string query = "select TenCD from ChuyenDe";
+            DataTable data = DataProvider.Instance.Select(CommandType.Text, query);
+            DataProvider.Instance.Disconnect();
+
+            if(data != null)
+            {
+                foreach (DataRow row in data.Rows)
+                {
+                    if (row["TenCD"].ToString() == tencd)
+                        return true;
+                }
+            }
+            return false;
+        }
+
         public string selectMaCDMoi()
         {
             string result = "CD01";

@@ -209,5 +209,37 @@ namespace QuanLyChuyenDe.BUS
 
             return ChuyenDeDAO.Instance.update(cd);
         }
+
+        public int insert(frmThemChuyenDe frm)
+        {
+            TextBox txtMaCD = frm.Controls.Find("txtMaCD", true).FirstOrDefault() as TextBox;
+            ComboBox cbTenNganh = frm.Controls.Find("cbTenNganh", true).FirstOrDefault() as ComboBox;
+            TextBox txtTenCD = frm.Controls.Find("txtTenCD", true).FirstOrDefault() as TextBox;
+            TextBox txtSLSVToiDa = frm.Controls.Find("txtSLSVToiDa", true).FirstOrDefault() as TextBox;
+            TextBox txtSLNhomToiDa = frm.Controls.Find("txtSLNhomToiDa", true).FirstOrDefault() as TextBox;
+            ComboBox cbTrangThai = frm.Controls.Find("cbTrangThai", true).FirstOrDefault() as ComboBox;
+            DateTimePicker dtpNgayBD = frm.Controls.Find("dtpNgayBD", true).FirstOrDefault() as DateTimePicker;
+            DateTimePicker dtpNgayKT = frm.Controls.Find("dtpNgayKT", true).FirstOrDefault() as DateTimePicker;
+
+            string macd = txtMaCD.Text;
+            string tennganh = cbTenNganh.Text;
+            string tencd = txtTenCD.Text;
+            int slsv = 0;
+            int.TryParse(txtSLSVToiDa.Text, out slsv);
+            int slnhom = 0;
+            int.TryParse(txtSLNhomToiDa.Text, out slsv);
+            string trangthai = cbTrangThai.Text;
+            DateTime ngaybd = dtpNgayBD.Value.Date;
+            DateTime ngaykt = dtpNgayKT.Value.Date;
+
+            if(ChuyenDeDAO.Instance.checkTen(tencd))
+            {
+                return 2;
+            }
+
+            ChuyenDeBUS cd = new ChuyenDeBUS(macd, tennganh, tencd, slsv, slnhom, ngaybd, ngaykt, trangthai);
+
+            return ChuyenDeDAO.Instance.insert(cd) == true ? 1 : 0;
+        }
     }
 }

@@ -248,6 +248,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmCapNhatChuyenDe";
             this.Text = "frmCapNhatChuyenDe";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCapNhatChuyenDe_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

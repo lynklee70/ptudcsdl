@@ -13,6 +13,8 @@ namespace QuanLyChuyenDe.GUI
 {
     public partial class frmThemChuyenDe : Form
     {
+        public delegate void CloseEvent();
+        public CloseEvent WindowClosed;
         public frmThemChuyenDe()
         {
             InitializeComponent();
@@ -36,6 +38,11 @@ namespace QuanLyChuyenDe.GUI
 
         private void frmThemChuyenDe_Load(object sender, EventArgs e)
         {
+            load();
+        }
+
+        public void load()
+        {
             ChuyenDeBUS.Instance.loadFormThem(this);
         }
 
@@ -52,6 +59,30 @@ namespace QuanLyChuyenDe.GUI
         private void dtpNgayKT_ValueChanged(object sender, EventArgs e)
         {
             ChuyenDeBUS.Instance.ngayKTValueChange(dtpNgayBD, dtpNgayKT);
+        }
+
+        private void frmThemChuyenDe_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            WindowClosed();
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            if(ChuyenDeBUS.Instance.insert(this) == 1)
+            {
+                MessageBox.Show("Thêm thành công", "Thông báo");
+                WindowClosed();
+                load();
+                
+            }
+            else if (ChuyenDeBUS.Instance.insert(this) == 0)
+            {
+                MessageBox.Show("Thêm thất bại", "Thông báo");
+            }
+            else
+            {
+                MessageBox.Show("Tên chuyên đề đã tồn tại", "Thông báo");
+            }
         }
     }
 }
