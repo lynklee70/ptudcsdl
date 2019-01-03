@@ -151,5 +151,17 @@ namespace QuanLyChuyenDe.DAO
             DataProvider.Instance.Disconnect();
             return result != -1;
         }
+
+        public string getMaCD(string tencd)
+        {
+            DataProvider.Instance.Connect();
+            string query = "select * from ChuyenDe where TenCD = @tencd";
+            DataTable data = DataProvider.Instance.Select(CommandType.Text, query,
+                                                new SqlParameter { ParameterName = "@tencd", Value = tencd });
+            DataProvider.Instance.Disconnect();
+
+            string tennganh = data.Rows[0]["MaCD"].ToString();
+            return tennganh;
+        }
     }
 }

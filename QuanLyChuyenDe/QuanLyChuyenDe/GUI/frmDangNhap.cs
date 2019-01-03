@@ -40,8 +40,8 @@ namespace QuanLyChuyenDe.GUI
                 }
                 else if (rs == 1)
                 {
-                    //frmMainGiaoVien frm = new frmMainGiaoVien(username);
-                    frmMainGiaoVien frm = new frmMainGiaoVien();
+                    frmMainGiaoVien frm = new frmMainGiaoVien(username);
+                    //frmMainGiaoVien frm = new frmMainGiaoVien();
                     frm.ShowDialog();
                 }
                 else
