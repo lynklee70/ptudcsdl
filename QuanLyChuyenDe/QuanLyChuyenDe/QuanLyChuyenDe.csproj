@@ -47,10 +47,12 @@
     <Compile Include="BUS\AccountBUS.cs" />
     <Compile Include="BUS\ChuyenDeBUS.cs" />
     <Compile Include="BUS\NganhBUS.cs" />
+    <Compile Include="BUS\UserBUS.cs" />
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\ChuyenDeDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\NganhDAO.cs" />
+    <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +107,12 @@
     <Compile Include="GUI\frmThemChuyenDe.Designer.cs">
       <DependentUpon>frmThemChuyenDe.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmTraCuuKetQuaChuyenDe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmTraCuuKetQuaChuyenDe.Designer.cs">
+      <DependentUpon>frmTraCuuKetQuaChuyenDe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\frmCapNhatChuyenDe.resx">
@@ -121,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmThemChuyenDe.resx">
       <DependentUpon>frmThemChuyenDe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmTraCuuKetQuaChuyenDe.resx">
+      <DependentUpon>frmTraCuuKetQuaChuyenDe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -35,7 +35,7 @@ namespace QuanLyChuyenDe.DAO
 
             foreach (DataRow item in data.Rows)
             {
-                int maNganh = int.Parse(item["MaNganh"].ToString());
+                string maNganh = item["MaNganh"].ToString();
                 string tenNganh = item["TenNganh"].ToString();
                 int slSVTungHoc = int.Parse(item["SLSVTungHoc"].ToString());
                 int slChuyenDe = int.Parse(item["SLChuyenDe"].ToString());

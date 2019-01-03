@@ -45,7 +45,7 @@ namespace QuanLyChuyenDe.GUI
             }
             else
             {
-                MessageBox.Show("Cập nhật thất bại", "Thông báo");
+                MessageBox.Show("Cập nhật thất bại! Tên chuyên đề đã tồn tại", "Thông báo");
             }
         }
 
@@ -53,5 +53,23 @@ namespace QuanLyChuyenDe.GUI
         {
             WindowClosed();
         }
+
+        private void txtSLSVToiDa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtSLNhomToiDa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        
     }
 }

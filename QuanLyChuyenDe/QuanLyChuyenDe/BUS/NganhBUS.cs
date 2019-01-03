@@ -8,13 +8,16 @@ namespace QuanLyChuyenDe.BUS
 {
     public class NganhBUS
     {
-        int maNganh, sLSVTungHoc, sLChuyenDe;
+        int sLSVTungHoc, sLChuyenDe;
 
-        public int MaNganh
+        string maNganh;
+
+        public string MaNganh
         {
             get { return maNganh; }
             set { maNganh = value; }
         }
+        
 
         public int SLSVTungHoc
         {
@@ -35,7 +38,7 @@ namespace QuanLyChuyenDe.BUS
             set { tenNganh = value; }
         }
 
-        public NganhBUS(int maNganh, string tenNganh, int sLSVTungHoc, int sLChuyenDe)
+        public NganhBUS(string maNganh, string tenNganh, int sLSVTungHoc, int sLChuyenDe)
         {
             this.MaNganh = maNganh;
             this.TenNganh = tenNganh;

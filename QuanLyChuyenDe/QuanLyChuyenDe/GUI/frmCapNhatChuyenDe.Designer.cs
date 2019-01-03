@@ -115,6 +115,7 @@
             this.txtSLSVToiDa.Name = "txtSLSVToiDa";
             this.txtSLSVToiDa.Size = new System.Drawing.Size(274, 20);
             this.txtSLSVToiDa.TabIndex = 42;
+            this.txtSLSVToiDa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSLSVToiDa_KeyPress);
             // 
             // txtSLNhomToiDa
             // 
@@ -123,6 +124,7 @@
             this.txtSLNhomToiDa.Name = "txtSLNhomToiDa";
             this.txtSLNhomToiDa.Size = new System.Drawing.Size(274, 20);
             this.txtSLNhomToiDa.TabIndex = 41;
+            this.txtSLNhomToiDa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSLNhomToiDa_KeyPress);
             // 
             // label9
             // 

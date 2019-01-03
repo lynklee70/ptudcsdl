@@ -77,7 +77,7 @@ namespace QuanLyChuyenDe.GUI
             }
             else if (ChuyenDeBUS.Instance.insert(this) == 0)
             {
-                MessageBox.Show("Thêm thất bại", "Thông báo");
+                MessageBox.Show("Thêm thất bại! Chuyên đề đang được mở đăng kí hoặc mở lớp.", "Thông báo");
             }
             else
             {

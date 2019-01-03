@@ -42,7 +42,7 @@ namespace QuanLyChuyenDe.DAO
                 DateTime ngayKT = (DateTime)item["NgayKT"];
                 string tt = item["TrangThai"].ToString();
 
-                ChuyenDeBUS cd = new ChuyenDeBUS(maCD, tenNganh, tenCD, slSVToiDa, slNhomToiDa, ngayBD, ngayKT, tt);
+                ChuyenDeBUS cd = new ChuyenDeBUS(maCD, tenNganh, tenCD, slSVToiDa, slNhomToiDa, ngayBD.Date, ngayKT.Date, tt);
                 listCD.Add(cd);
             }
             return listCD;
@@ -81,7 +81,7 @@ namespace QuanLyChuyenDe.DAO
                                         new SqlParameter { ParameterName = "@ngaykt", Value = cd.NgayKT },
                                         new SqlParameter { ParameterName = "@trangthai", Value = cd.TrangThai });
             DataProvider.Instance.Disconnect();
-            return result != 0;
+            return result != -1;
         }
 
         public bool insert(ChuyenDeBUS cd)
@@ -149,7 +149,7 @@ namespace QuanLyChuyenDe.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(CommandType.StoredProcedure, query,
                                         new SqlParameter { ParameterName = "@macd", Value = macd });
             DataProvider.Instance.Disconnect();
-            return result != 0;
+            return result != -1;
         }
     }
 }
