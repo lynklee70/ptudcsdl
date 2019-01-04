@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(456, 266);
             this.Name = "frmMainSinhVien";
             this.Text = "frmMainSinhVien";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMainSinhVien_FormClosed);
             this.ResumeLayout(false);
 
         }

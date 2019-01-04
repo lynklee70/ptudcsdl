@@ -16,6 +16,10 @@ namespace QuanLyChuyenDe.GUI
         public frmDangNhap()
         {
             InitializeComponent();
+            this.AcceptButton = btn_DangNhap;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
         }
 
         private void btn_DangNhap_Click(object sender, EventArgs e)
@@ -33,23 +37,31 @@ namespace QuanLyChuyenDe.GUI
                 {
                     MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!", "Thông báo");
                 }
-                else if (rs == 0)
+                else 
                 {
-                    frmMainGiaoVu frm = new frmMainGiaoVu();
-                    frm.ShowDialog();
-                }
-                else if (rs == 1)
-                {
-                    frmMainGiaoVien frm = new frmMainGiaoVien(username);
-                    //frmMainGiaoVien frm = new frmMainGiaoVien();
-                    frm.ShowDialog();
-                }
-                else
-                {
-                    frmMainSinhVien frm = new frmMainSinhVien();
-                    frm.ShowDialog();
+                    if (rs == 2)
+                    {
+                        frmMainGiaoVu frm = new frmMainGiaoVu();
+                        frm.Show();
+                    }
+                    else if (rs == 0)
+                    {
+                        frmMainGiaoVien frm = new frmMainGiaoVien(username);
+                        frm.Show();
+                    }
+                    else
+                    {
+                        frmMainSinhVien frm = new frmMainSinhVien(username);
+                        frm.Show();
+                    }
+                    this.Hide();
                 }
             }
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -60,19 +60,10 @@ namespace QuanLyChuyenDe.DAO
 
         public string GetUsername(int type)
         {
-            string rs = "";
-
-            if (type == 1)
-            {
-                rs += "GV";
-            }
-            if (type == 2)
-            {
-                rs += "SV";
-            }
+            string rs = "SV";
             if (type == 0)
             {
-                rs += "QL";
+                rs = "GV";
             }
             string query = "select max(Username) from TaiKhoan where type = " + type;
             DataProvider.Instance.Connect();

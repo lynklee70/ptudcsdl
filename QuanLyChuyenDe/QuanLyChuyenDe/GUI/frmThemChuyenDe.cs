@@ -14,12 +14,17 @@ namespace QuanLyChuyenDe.GUI
     public partial class frmThemChuyenDe : Form
     {
         public delegate void CloseEvent();
-        public CloseEvent WindowClosed;
+        public event CloseEvent WindowClosed;
         public frmThemChuyenDe()
         {
             InitializeComponent();
+            this.AcceptButton = btnThem;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
         }
 
+        //Chỉ cho phép nhập số 0-9
         private void txtSLSVToiDa_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -28,6 +33,7 @@ namespace QuanLyChuyenDe.GUI
             }
         }
 
+        //Chỉ cho phép nhập số 0-9
         private void txtSLNhomToiDa_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -58,26 +64,25 @@ namespace QuanLyChuyenDe.GUI
 
         private void dtpNgayKT_ValueChanged(object sender, EventArgs e)
         {
-            ChuyenDeBUS.Instance.ngayKTValueChange(dtpNgayBD, dtpNgayKT);
+            if (!ChuyenDeBUS.Instance.ngayKTValueChange(dtpNgayBD, dtpNgayKT))
+            {
+                MessageBox.Show("Ngày kết thúc không được nhỏ hơn ngày bắt đầu", "Thông báo");
+            }
         }
 
         private void frmThemChuyenDe_FormClosed(object sender, FormClosedEventArgs e)
         {
+            //Gọi event WindowClosed() để load lại formDanhSachChuyenDe
             WindowClosed();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if(ChuyenDeBUS.Instance.insert(this) == 1)
+            if (ChuyenDeBUS.Instance.insert(this))
             {
                 MessageBox.Show("Thêm thành công", "Thông báo");
                 WindowClosed();
                 load();
-                
-            }
-            else if (ChuyenDeBUS.Instance.insert(this) == 0)
-            {
-                MessageBox.Show("Thêm thất bại! Chuyên đề đang được mở đăng kí hoặc mở lớp.", "Thông báo");
             }
             else
             {

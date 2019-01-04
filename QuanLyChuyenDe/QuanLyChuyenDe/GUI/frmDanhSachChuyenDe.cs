@@ -16,6 +16,9 @@ namespace QuanLyChuyenDe.GUI
         public frmDanhSachChuyenDe()
         {
             InitializeComponent();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
         }
 
         private void frmDanhSachChuyenDe_Load(object sender, EventArgs e)
@@ -37,10 +40,17 @@ namespace QuanLyChuyenDe.GUI
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            string macd = dgvDanhSachCD.SelectedRows[0].Cells["MaCD"].Value.ToString();
-            frmCapNhatChuyenDe frm = new frmCapNhatChuyenDe(macd);
-            frm.WindowClosed += load;
-            frm.ShowDialog();
+            if (dgvDanhSachCD.SelectedRows.Count > 0)
+            {
+                string macd = dgvDanhSachCD.SelectedRows[0].Cells["MaCD"].Value.ToString();
+                frmCapNhatChuyenDe frm = new frmCapNhatChuyenDe(macd);
+                frm.WindowClosed += load;
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Không có dữ liệu", "Thông báo");
+            }
         }
 
         private void load()
@@ -50,14 +60,22 @@ namespace QuanLyChuyenDe.GUI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if(ChuyenDeBUS.Instance.delete(dgvDanhSachCD))
+            if (dgvDanhSachCD.SelectedRows.Count > 0)
             {
-                MessageBox.Show("Xóa thành công", "Thông báo");
-                ChuyenDeBUS.Instance.loadFormDanhSach(dgvDanhSachCD);
+                string macd = dgvDanhSachCD.SelectedRows[0].Cells["MaCD"].Value.ToString();
+                if (ChuyenDeBUS.Instance.delete(macd))
+                {
+                    MessageBox.Show("Xóa thành công", "Thông báo");
+                    ChuyenDeBUS.Instance.loadFormDanhSach(dgvDanhSachCD);
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại! Chuyên đề đã được sinh viên đăng kí hoặc được mở lớp!", "Thông báo");
+                }
             }
             else
             {
-                MessageBox.Show("Xóa thất bại", "Thông báo");
+                MessageBox.Show("Không có dữ liệu", "Thông báo");
             }
         }
     }

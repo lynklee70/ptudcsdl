@@ -14,7 +14,7 @@ namespace QuanLyChuyenDe.GUI
     public partial class frmCapNhatChuyenDe : Form
     {
         public delegate void CloseEvent();
-        public CloseEvent WindowClosed;
+        public event CloseEvent WindowClosed;
         public frmCapNhatChuyenDe()
         {
             InitializeComponent();
@@ -23,6 +23,10 @@ namespace QuanLyChuyenDe.GUI
         public frmCapNhatChuyenDe(string macd)
         {
             InitializeComponent();
+            this.AcceptButton = btnCapNhat;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
             loadForm(macd);
         }
 
@@ -51,9 +55,11 @@ namespace QuanLyChuyenDe.GUI
 
         private void frmCapNhatChuyenDe_FormClosed(object sender, FormClosedEventArgs e)
         {
+            //Gọi event load lại form frmDanhSachChuyenDe
             WindowClosed();
         }
 
+        //Chỉ cho phép nhập số 0-9
         private void txtSLSVToiDa_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -62,6 +68,7 @@ namespace QuanLyChuyenDe.GUI
             }
         }
 
+        //Chỉ cho phép nhập số 0-9
         private void txtSLNhomToiDa_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))

@@ -16,6 +16,10 @@ namespace QuanLyChuyenDe.GUI
         public frmDangKyTaiKhoan()
         {
             InitializeComponent();
+            this.AcceptButton = btn_DangKy;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
         }
 
         private void loadForm()
@@ -54,7 +58,8 @@ namespace QuanLyChuyenDe.GUI
 
         private void frmDangKyTaiKhoan_Load(object sender, EventArgs e)
         {
-            cbbType.SelectedIndex = 2;
+            //Mặc định là sinh viên
+            cbbType.SelectedIndex = 1;
             loadForm();
         }
 

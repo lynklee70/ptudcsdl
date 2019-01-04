@@ -17,6 +17,9 @@ namespace QuanLyChuyenDe.GUI
         public frmCapNhatThongTin()
         {
             InitializeComponent();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
         }
 
         public frmCapNhatThongTin(string magv)

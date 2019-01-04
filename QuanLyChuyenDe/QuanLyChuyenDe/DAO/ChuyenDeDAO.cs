@@ -98,25 +98,7 @@ namespace QuanLyChuyenDe.DAO
                                         new SqlParameter { ParameterName = "@ngaykt", Value = cd.NgayKT },
                                         new SqlParameter { ParameterName = "@trangthai", Value = cd.TrangThai });
             DataProvider.Instance.Disconnect();
-            return result != 0;
-        }
-
-        public bool checkTen(string tencd)
-        {
-            DataProvider.Instance.Connect();
-            string query = "select TenCD from ChuyenDe";
-            DataTable data = DataProvider.Instance.Select(CommandType.Text, query);
-            DataProvider.Instance.Disconnect();
-
-            if(data != null)
-            {
-                foreach (DataRow row in data.Rows)
-                {
-                    if (row["TenCD"].ToString() == tencd)
-                        return true;
-                }
-            }
-            return false;
+            return result != -1;
         }
 
         public string selectMaCDMoi()

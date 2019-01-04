@@ -17,6 +17,9 @@ namespace QuanLyChuyenDe.GUI
         public frmTraCuuKetQuaChuyenDe()
         {
             InitializeComponent();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
         }
 
         private void btnXem_Click(object sender, EventArgs e)

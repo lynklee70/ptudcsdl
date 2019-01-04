@@ -31,7 +31,7 @@ namespace QuanLyChuyenDe.DAO
             string query = "select * from SinhVien_Hoc_Lop";
             if (type == "ms")
             {
-                query = "select * from SinhVien_Hoc_Lop where MaSV=" + k;
+                query = "select * from SinhVien_Hoc_Lop where MaSV='" + k + "'";
             }
             else if (type == "mcd")
             {
@@ -67,7 +67,7 @@ namespace QuanLyChuyenDe.DAO
             string query = "select * from SV_DANGKY_CD";
             if (type == "ms")
             {
-                query = "select * from SV_DANGKY_CD where MaSV=" + k;
+                query = "select * from SV_DANGKY_CD where MaSV='" + k +"'";
             }
             else if (type == "mcd")
             {

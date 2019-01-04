@@ -80,7 +80,6 @@
             this.cbbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbType.FormattingEnabled = true;
             this.cbbType.Items.AddRange(new object[] {
-            "Giáo vụ",
             "Giáo viên",
             "Sinh viên"});
             this.cbbType.Location = new System.Drawing.Point(128, 31);

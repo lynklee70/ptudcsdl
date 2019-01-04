@@ -16,5 +16,15 @@ namespace QuanLyChuyenDe.GUI
         {
             InitializeComponent();
         }
+
+        public frmMainSinhVien(string masv)
+        {
+            InitializeComponent();
+        }
+
+        private void frmMainSinhVien_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

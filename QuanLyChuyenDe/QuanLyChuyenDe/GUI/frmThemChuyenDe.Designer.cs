@@ -169,6 +169,9 @@
             // 
             this.cbTrangThai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTrangThai.FormattingEnabled = true;
+            this.cbTrangThai.Items.AddRange(new object[] {
+            "Mở",
+            "Đóng"});
             this.cbTrangThai.Location = new System.Drawing.Point(156, 270);
             this.cbTrangThai.Name = "cbTrangThai";
             this.cbTrangThai.Size = new System.Drawing.Size(274, 21);

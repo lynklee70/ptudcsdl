@@ -102,13 +102,14 @@ namespace QuanLyChuyenDe.BUS
             ngayKT.Value = ngayBD.Value.AddDays(98);
         }
 
-        public void ngayKTValueChange(DateTimePicker ngayBD, DateTimePicker ngayKT)
+        public bool ngayKTValueChange(DateTimePicker ngayBD, DateTimePicker ngayKT)
         {
             if (ngayKT.Value.Date < ngayBD.Value.Date)
-            { 
-                MessageBox.Show("Ngày kết thúc không được nhỏ hơn ngày bắt đầu", "Thông báo");
+            {
                 ngayKT.Value = ngayBD.Value.AddDays(98);
+                return false;
             }
+            return true;
         }
 
         public void loadFormDanhSach(DataGridView dgv)
@@ -129,15 +130,13 @@ namespace QuanLyChuyenDe.BUS
 
             txtMaCD.Text = ChuyenDeDAO.Instance.selectMaCDMoi();
 
+            cbTenNganh.Items.Clear();
             List<NganhBUS> listNganh = NganhDAO.Instance.selectAll();
             foreach(var nganh in listNganh)
             {
                 cbTenNganh.Items.Add(nganh.TenNganh);
             }
             cbTenNganh.SelectedIndex = 0;
-
-            cbTrangThai.Items.Add("Mở");
-            cbTrangThai.Items.Add("Đóng");
             cbTrangThai.SelectedIndex = 0;
 
             dtpNgayBD.Value = DateTime.Now;
@@ -174,15 +173,9 @@ namespace QuanLyChuyenDe.BUS
             
         }
 
-        public bool delete(DataGridView dgv)
+        public bool delete(string macd)
         {
-            if (dgv.SelectedRows.Count > 0)
-            {
-                string macd = dgv.SelectedCells[0].OwningRow.Cells["MaCD"].Value.ToString();
-                return ChuyenDeDAO.Instance.detele(macd);
-            }
-            else
-                return false;
+            return ChuyenDeDAO.Instance.detele(macd);
         }
 
         public bool update(frmCapNhatChuyenDe frm)
@@ -210,7 +203,7 @@ namespace QuanLyChuyenDe.BUS
             return ChuyenDeDAO.Instance.update(cd);
         }
 
-        public int insert(frmThemChuyenDe frm)
+        public bool insert(frmThemChuyenDe frm)
         {
             TextBox txtMaCD = frm.Controls.Find("txtMaCD", true).FirstOrDefault() as TextBox;
             ComboBox cbTenNganh = frm.Controls.Find("cbTenNganh", true).FirstOrDefault() as ComboBox;
@@ -232,14 +225,9 @@ namespace QuanLyChuyenDe.BUS
             DateTime ngaybd = dtpNgayBD.Value.Date;
             DateTime ngaykt = dtpNgayKT.Value.Date;
 
-            if(ChuyenDeDAO.Instance.checkTen(tencd))
-            {
-                return 2;
-            }
-
             ChuyenDeBUS cd = new ChuyenDeBUS(macd, tennganh, tencd, slsv, slnhom, ngaybd, ngaykt, trangthai);
 
-            return ChuyenDeDAO.Instance.insert(cd) == true ? 1 : 0;
+            return ChuyenDeDAO.Instance.insert(cd);
         }
     }
 }
