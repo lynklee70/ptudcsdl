@@ -36,10 +36,10 @@ namespace QuanLyChuyenDe.DAO
             if (malop != "")
             {
                 string tmp = data.Rows[0][0].ToString();
-                int num = int.Parse(tmp.Substring(2, 6));
+                int num = int.Parse(tmp.Substring(2, 2));
                 num += 1;
                 tmp = num.ToString();
-                while (tmp.Length <= 5)
+                while (tmp.Length <= 1)
                 {
                     tmp = "0" + tmp;
                 }
@@ -47,7 +47,7 @@ namespace QuanLyChuyenDe.DAO
             }
             else
             {
-                rs += "000001";
+                rs += "01";
             }
             DataProvider.Instance.Disconnect();
             return rs;
@@ -60,8 +60,8 @@ namespace QuanLyChuyenDe.DAO
             int rs = DataProvider.Instance.ExecuteNonQuery(CommandType.StoredProcedure, query,
                                         new SqlParameter { ParameterName = "@malop", Value = lh.MaLop },
                                         new SqlParameter { ParameterName = "@macd", Value = lh.MaCD },
-                                        new SqlParameter { ParameterName = "@tenlop", Value = lh.TenLop },
-                                        new SqlParameter { ParameterName = "@gvpt", Value = lh.GvPhuTrach });
+                                        new SqlParameter { ParameterName = "@gvpt",Value = lh.GvPhuTrach},
+                                        new SqlParameter { ParameterName = "@tenlop", Value = lh.TenLop });
             DataProvider.Instance.Disconnect();
             return rs;
         }

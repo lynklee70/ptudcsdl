@@ -23,7 +23,7 @@ namespace QuanLyChuyenDe.DAO
         //Open Connect
         public DataProvider()
         {
-            ConnectionString = @"SERVER = DESKTOP-6Q96NN3\SQLEXPRESS; Database=DangKyChuyenDe; Trusted_Connection=True;";
+            ConnectionString = @"SERVER = DESKTOP-LP50Q7H\SQLEXPRESS; Database=DangKyChuyenDe; Trusted_Connection=True;";
 
             Connection = new SqlConnection(ConnectionString);
         }

@@ -51,7 +51,7 @@ namespace QuanLyChuyenDe.BUS
             set { gvPhuTrach = value; }
         }
 
-        public LopHocBUS(string maLop, string maCD, string tenLop, string gvPhuTrach)
+        public LopHocBUS(string maLop, string maCD, string gvPhuTrach, string tenLop)
         {
             this.MaLop = maLop;
             this.MaCD = maCD;
@@ -70,17 +70,26 @@ namespace QuanLyChuyenDe.BUS
             cbbChuyenDe.SelectedIndex = 0;
         }
 
-        public void insert(string magv, frmPhuTrachChuyenDe frm)
+        public int insert(string magv, frmPhuTrachChuyenDe frm)
         {
+            TextBox txtTenLop = frm.Controls.Find("txtTenLop", true).FirstOrDefault() as TextBox;
             ComboBox cbbChuyenDe = frm.Controls.Find("cbbChuyenDe", true).FirstOrDefault() as ComboBox;
             string chuyende = cbbChuyenDe.SelectedItem.ToString();
 
             string malop = LopHocDAO.Instance.GetMaLop();
             string macd = ChuyenDeDAO.Instance.getMaCD(chuyende);
-            string tenlop = malop;
+            string tenlop = txtTenLop.Text;
             string MaGV = magv;
-            LopHocBUS lh = new LopHocBUS(malop, macd, tenlop, magv);
+
+            if (!(ChuyenDeDAO.Instance.checkTrangThai(macd)))
+            {
+                return 0;
+            }
+
+            LopHocBUS lh = new LopHocBUS(malop, macd, magv, tenlop);
             LopHocDAO.Instance.insert(lh);
+
+            return 1;
         }
     }
 }

@@ -25,6 +25,9 @@ namespace QuanLyChuyenDe.GUI
         {
             InitializeComponent();
             MaGV = magv;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
@@ -52,13 +55,13 @@ namespace QuanLyChuyenDe.GUI
 
         private void btnCapNhatThongTin_Click(object sender, EventArgs e)
         {
-            frmCapNhatThongTin frm = new frmCapNhatThongTin();
+            frmCapNhatThongTin frm = new frmCapNhatThongTin(MaGV);
             frm.ShowDialog();
         }
 
         private void btnGuiChuyenDe_Click(object sender, EventArgs e)
         {
-            frmPhuTrachChuyenDe frm = new frmPhuTrachChuyenDe();
+            frmPhuTrachChuyenDe frm = new frmPhuTrachChuyenDe(MaGV);
             frm.ShowDialog();
         }
     }

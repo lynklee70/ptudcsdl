@@ -33,6 +33,8 @@
             this.btnChon = new System.Windows.Forms.Button();
             this.cbbChuyenDe = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtTenLop = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label5
@@ -47,7 +49,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(267, 158);
+            this.btnThoat.Location = new System.Drawing.Point(264, 173);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(80, 30);
             this.btnThoat.TabIndex = 22;
@@ -57,7 +59,7 @@
             // 
             // btnChon
             // 
-            this.btnChon.Location = new System.Drawing.Point(158, 158);
+            this.btnChon.Location = new System.Drawing.Point(155, 173);
             this.btnChon.Name = "btnChon";
             this.btnChon.Size = new System.Drawing.Size(80, 30);
             this.btnChon.TabIndex = 23;
@@ -83,11 +85,29 @@
             this.label1.TabIndex = 20;
             this.label1.Text = "Chuyên đề";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(136, 132);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Tên lớp";
+            // 
+            // txtTenLop
+            // 
+            this.txtTenLop.Location = new System.Drawing.Point(205, 129);
+            this.txtTenLop.Name = "txtTenLop";
+            this.txtTenLop.Size = new System.Drawing.Size(189, 20);
+            this.txtTenLop.TabIndex = 26;
+            // 
             // frmPhuTrachChuyenDe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(509, 215);
+            this.Controls.Add(this.txtTenLop);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnChon);
@@ -108,5 +128,7 @@
         private System.Windows.Forms.Button btnChon;
         private System.Windows.Forms.ComboBox cbbChuyenDe;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtTenLop;
     }
 }

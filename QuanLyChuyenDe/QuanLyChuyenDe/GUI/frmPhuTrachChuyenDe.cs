@@ -26,6 +26,9 @@ namespace QuanLyChuyenDe.GUI
         {
             InitializeComponent();
             MaGV = magv;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
         }
 
         private void frmPhuTrachChuyenDe_Load(object sender, EventArgs e)
@@ -35,7 +38,15 @@ namespace QuanLyChuyenDe.GUI
 
         private void btnChon_Click(object sender, EventArgs e)
         {
-            LopHocBUS.Instance.insert(MaGV, this);
+            if (LopHocBUS.Instance.insert(MaGV, this) == 1)
+            {
+                MessageBox.Show("Chọn thành công", "Thông báo");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Thêm thất bại! Chuyên đề đang đóng.", "Thông báo");
+            }
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

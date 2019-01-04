@@ -145,5 +145,19 @@ namespace QuanLyChuyenDe.DAO
             string tennganh = data.Rows[0]["MaCD"].ToString();
             return tennganh;
         }
+
+        public bool checkTrangThai(string macd)
+        {
+            DataProvider.Instance.Connect();
+            string query = "select * from ChuyenDe where MaCD = '" + @macd + "'";
+            DataTable data = DataProvider.Instance.Select(CommandType.Text, query);
+            DataProvider.Instance.Disconnect();
+
+            if (data.Rows[0]["TrangThai"].ToString() == "Mở")
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
